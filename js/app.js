@@ -3,6 +3,7 @@
 // define targets to write to 
 let section_with_list = document.getElementById('id_1');
 let table_1 = document.createElement('table');
+let contact_info= document.getElementById('table_contact');
 
 
 
@@ -10,11 +11,11 @@ let array_of_cities =[] ;
 
 
 
-new city('Seattle', 23,65,6.3);
-new city('Tokyo', 3,24 ,1.2);
-new city('Dubai', 11,38,3.7);
-new city('Paris', 20,38,2.3);
-new city('Lima', 2,16,4.6);
+new city('Seattle', 23,65,6.3,'101 Elm Street', '857-5309');
+new city('Tokyo', 3,24 ,1.2,'99 Parkway Street', '798-1235');
+new city('Dubai', 11,38,3.7,'101 Elm Street', '857-5307');
+new city('Paris', 20,38,2.3,'178 La Rue ', '999-1111');
+new city('Lima', 2,16,4.6,'1600 Pennsylvania Ave', '796-5287');
 
 
 
@@ -22,13 +23,15 @@ new city('Lima', 2,16,4.6);
 
 
 // constructor for each city
-function  city(name, min,max,aveSales)  {
+function  city(name, min,max,aveSales,address,phone_number)  {
   this.name=name;
   this.min =min;
   this.total=0;
   this.max = max ;
   this.aveSales = aveSales   ; 
   // this.customersPerHour = [];
+  this.address =address;
+  this.phone_number = phone_number;
   this.salesPerHour = [] ;
   this.hours = [] ;
 
@@ -39,6 +42,58 @@ function  city(name, min,max,aveSales)  {
   array_of_cities.push(this);
 }////////////////////////////////////////////////////////////////////////// end constructor 
 
+
+
+function makeContactTable(){
+
+  let heading_row = document.createElement('tr');
+  contact_info.appendChild(heading_row);
+
+
+    let place = document.createElement('th');
+    place.textContent = "Location" ;
+    heading_row.appendChild(place);
+
+    let addy = document.createElement('th');
+    addy.textContent = "Address" ;
+    heading_row.appendChild(addy);
+
+    let phone_numb = document.createElement('th');
+    phone_numb.textContent = "Address" ;
+    heading_row.appendChild(phone_numb);
+
+
+
+    for(let i=0; i<array_of_cities.length ; i++ ){
+     
+      let temp = array_of_cities[i] ; 
+      // console.log(temp);
+      // add row to table
+      let row = document.createElement('tr');
+      contact_info.appendChild(row);
+      //adds the city name
+      let name = document.createElement('td');
+      name.textContent = temp.name ;
+      row.appendChild(name);
+      //adds the address
+      let location = document.createElement('td');
+      location.textContent = temp.address ;
+      row.appendChild(location);
+      // adds the phone number 
+      let contact = document.createElement('td');
+      contact.textContent = temp.phone_number ;
+      row.appendChild(contact);
+      
+      let times_open = document.createElement('td');
+      times_open.textContent = "6am-7pm" ;
+      row.appendChild(times_open);times_open
+
+
+            // temp.textContent = this.salesPerHour[i];
+            // row.appendChild(temp) ;
+      
+    }// end for 
+}// end makeContactTable()
 
  city.prototype.make_hours =  function(){
     let am = [];
@@ -243,6 +298,8 @@ function finish_objects(){
 
 finish_objects();
 
-
+makeContactTable(); 
 renderAll(array_of_cities);
+
+
 
