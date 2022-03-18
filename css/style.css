@@ -37,28 +37,41 @@ table{
 
 
 
+fieldset {
+  width: 840px;
+  /* border: 7px solid #73094c; */
+  /* border-radius: 75px; */
+  /* padding: 20px; */
+  /* text-align: center; */
+}
 
 
 
+form{
+  
 
-
-
-
-
-
-/* body{
-  column-gap: 30px;
  
 }
 
-main{
-  margin-left: 15%;
-  /* margin-left: 209px;
-  margin-right: 200px; */
-  column-gap: 30px; 
-  /* align-items: center; */
-  /* margin-left:10%; */
+
+
+input {
+  border: 3px solid #73094c;
+  border-radius: 8px;
+  padding: 5px 5px 5px 5px;
+  margin: 15px;
+  display: block;
 }
+
+
+
+
+
+
+
+
+
+
 
 header{
   background-color: rgb(20, 26, 25);
@@ -68,11 +81,11 @@ header{
   /* align-items: center; */
   /* padding-left: 50; */
   /* margin-left: 50; */
-  height: 90px;
+  /* height: 90px; */
   /* display: flex; */
   /* align-content: center; */
   padding-top: 15px;
-  /* padding-bottom: 10px; */
+  padding-bottom: 10px;
   
 }
 

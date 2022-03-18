@@ -14,8 +14,8 @@ let array_of_cities =[] ;
 
 // add listener
 
-// let new_location = document.getElementById('contact-form');
-// new_location.addEventListener('submit', form_action);
+let new_location = document.getElementById('contact-form');
+new_location.addEventListener('submit', form_action);
 
 
 
@@ -30,23 +30,83 @@ new city('Lima', 2,16,4.6,'1600 Pennsylvania Ave', '796-5287');
 function form_action( event){
   event.preventDefault();
    //gotta have it. prevents page reload
-  const name = event.target.location.value;
+  let name = event.target.location.value;
   let address = event.target.Address.value;
 
+  let phone_number = event.target.phone_number.value;
 
+  let max = parseInt( event.target.max_number.value);
+  let min = parseInt(event.target.min_number.value);
+  let average = parseFloat(event.target.average.value);
 
+  // console.log(average);
+  new city( name , min, max, average, address, phone_number);
+  // new city('test', 23,65,6.3,'101 Elm Street', '857-5309');
 
+  // renderAll(array_of_cities);
+  makeContactTable2();
 
-  // tester(name , address);
- 
 }
 
-function tester(a , b  ){
-  console.log(a);
-  console.log(b);
+function makeContactTable2(){
 
-}
 
+
+  // var Table = document.getElementById("contact_info");
+  contact_info.innerHTML = "";
+
+  let heading_row = document.createElement('tr');
+  contact_info.appendChild(heading_row);
+
+
+    let place = document.createElement('th');
+    place.textContent = "Location" ;
+    heading_row.appendChild(place);
+
+    let addy = document.createElement('th');
+    addy.textContent = "Address" ;
+    heading_row.appendChild(addy);
+
+    let phone_numb = document.createElement('th');
+    phone_numb.textContent = "Phone Number" ;
+    heading_row.appendChild(phone_numb);
+   
+   
+    let hours_heading = document.createElement('th');
+    hours_heading.textContent = "Hours " ;
+    heading_row.appendChild(hours_heading);
+
+
+    for(let i=0; i<array_of_cities.length ; i++ ){
+     
+      let temp = array_of_cities[i] ; 
+      // console.log(temp);
+      // add row to table
+      let row = document.createElement('tr');
+      contact_info.appendChild(row);
+      //adds the city name
+      let name = document.createElement('td');
+      name.textContent = temp.name ;
+      row.appendChild(name);
+      //adds the address
+      let location = document.createElement('td');
+      location.textContent = temp.address ;
+      row.appendChild(location);
+      // adds the phone number 
+      let contact = document.createElement('td');
+      contact.textContent = temp.phone_number ;
+      row.appendChild(contact);
+      
+      let times_open = document.createElement('td');
+      times_open.textContent = "6am-7pm" ;
+      row.appendChild(times_open);times_open
+
+
+            // temp.textContent = this.salesPerHour[i];
+            // row.appendChild(temp) ;
+      
+    }// end for 
+}// end makeContactTable()
 
 
 
@@ -80,6 +140,20 @@ function makeContactTable(){
   contact_info.appendChild(heading_row);
 
 
+    // let place = document.createElement('th');
+    // place.textContent = "Location" ;
+    // heading_row.appendChild(place);
+
+    // let addy = document.createElement('th');
+    // addy.textContent = "Address" ;
+    // heading_row.appendChild(addy);
+
+    // let phone_numb = document.createElement('th');
+    // phone_numb.textContent = "Address" ;
+    // heading_row.appendChild(phone_numb);
+
+
+
     let place = document.createElement('th');
     place.textContent = "Location" ;
     heading_row.appendChild(place);
@@ -89,8 +163,16 @@ function makeContactTable(){
     heading_row.appendChild(addy);
 
     let phone_numb = document.createElement('th');
-    phone_numb.textContent = "Address" ;
+    phone_numb.textContent = "Phone Number" ;
     heading_row.appendChild(phone_numb);
+   
+   
+    let hours_heading = document.createElement('th');
+    hours_heading.textContent = "Hours " ;
+    heading_row.appendChild(hours_heading);
+
+
+
 
 
 
@@ -217,7 +299,7 @@ function renderAll(input){
   //make table
   
   //#td  maybe unquote and remove ''
-  section_with_list.appendChild(table_1);
+  // section_with_list.appendChild('table_1');
   
   //make heading
   let temp = document.createElement('tr');
