@@ -5,20 +5,65 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cooke_site</title>
+  <title>Cookie Site</title>
 </head>
 <body>
   <header>
 
     <header>
       <img id='header_img' src="image-assets/salmon.png" alt="should be a fish  ">
-      <nav> <a href="index.html">Index</a></nav>
+      <nav> <a href="Sales.html">Sales</a></nav>
   
     </header>
 
   </header>
   
+
   <main>
+
+    <form id = 'contact-form'>
+      <fieldset>
+          <legend>Location Information</legend>
+
+            <label for="location">Site Locations:</label>
+            <input type="text" in="location" name="location">
+
+            <label for="Address">Address</label>
+            <input type="text" in="Address" name="Address">
+          
+            <label for="phone_number">Phone Number</label>
+            <input type="text" in="phone_number" name="phone_number">
+          
+            <label for="min_number">Minimum</label>
+            <input type="text" in="min_number" name="min_number">
+
+            <label for="max_number">Maximum</label>
+            <input type="text" in="max_number" name="max_number">
+
+            <label for="average">Average</label>
+            <input type="text" in="average" name="average">
+
+
+            <button id="submit" type="submit" onclick="submitForm()" >Submit</button>
+      </fieldset>
+
+
+      <!-- <form id="chat-form">
+        <fieldset>
+          <legend>Chat submission form</legend>
+    
+          <label for="who">Who: </label>
+          <input name="who" type="text" />
+    
+          <label for="says">Comment: </label>
+          <input name="says" type="text" size="50" />
+    
+          <button id="comment-button" type="submit">Create new comment!</button>
+        </fieldset>
+      </form>
+
+    </form> -->
+
     <h1>Contact Information</h1>
     <table id="table_contact">
     </table>
@@ -42,6 +87,6 @@
   </main>
 
 
-  <script src="js/app.js"></script>
+  <script src="js/app_index.js  "></script>
 </body>
 </html>
