@@ -45,6 +45,61 @@ function form_action( event){
 
   // renderAll(array_of_cities);
   makeContactTable2();
+  // table_1.innerHTML='';
+  // section_with_list.removeChild(table_1);
+// table_1.remove();
+//  let table_1 = document.createElement('table');
+  finish_objects();
+
+  table_1.deleteRow(-1);
+
+  // renderAll(array_of_cities);
+  array_of_cities[array_of_cities.length-1].render();
+
+
+  
+
+
+
+// create total row 
+let row = document.createElement('tr');
+table_1.appendChild(row);
+
+let total_name = document.createElement('th');
+total_name.textContent = 'Total';
+row.appendChild(total_name);
+
+// console.log(input[0].hours);
+let sumVal = [];
+
+let input=array_of_cities;
+//for loop to iter over the columns
+for (let i=1; i<= input[0].hours.length ;  i++){
+  // console.log(table_1.rows.length);
+  sumVal[i-1]=0;
+
+  for(let j =1 ; j < table_1.rows.length-1 ; j++){
+    // console.log(i, j);
+    // https://www.youtube.com/watch?v=2p39swI3_Rs
+
+  // console.log(table_1.rows[j].cells[i].innerHTML) ;
+    sumVal[i-1] += parseInt(table_1.rows[j].cells[i].innerHTML) 
+    console.log(sumVal[i-1]);
+  }// end j 
+
+
+}//end i 
+
+// console.log(sumVal);
+
+
+for (let i=1; i<= input[0].hours.length ;  i++){
+let total_value = document.createElement('th');
+total_value.textContent = sumVal[i-1];
+row.appendChild(total_value);
+}
+
+
 
 }
 
@@ -140,18 +195,7 @@ function makeContactTable(){
   contact_info.appendChild(heading_row);
 
 
-    // let place = document.createElement('th');
-    // place.textContent = "Location" ;
-    // heading_row.appendChild(place);
-
-    // let addy = document.createElement('th');
-    // addy.textContent = "Address" ;
-    // heading_row.appendChild(addy);
-
-    // let phone_numb = document.createElement('th');
-    // phone_numb.textContent = "Address" ;
-    // heading_row.appendChild(phone_numb);
-
+  
 
 
     let place = document.createElement('th');
@@ -291,6 +335,12 @@ city.prototype.render = function(){
 
 
 
+
+
+
+
+
+
 function renderAll(input){
   let times = input[0].hours;
   // console.log(times);
@@ -299,7 +349,8 @@ function renderAll(input){
   //make table
   
   //#td  maybe unquote and remove ''
-  // section_with_list.appendChild('table_1');
+  section_with_list.appendChild(table_1);
+  console.log(table_1);
   
   //make heading
   let temp = document.createElement('tr');
@@ -394,6 +445,9 @@ let sumVal = [];
     
 
 }  // end render all 
+
+
+
 
 
 
