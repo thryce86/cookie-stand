@@ -14,6 +14,9 @@ let array_of_cities =[] ;
 
 // add listener
 
+let new_location = document.getElementById('contact-form');
+new_location.addEventListener('submit', form_action);
+
 // let new_location = document.getElementById('contact-form');
 // new_location.addEventListener('submit', form_action);
 
@@ -26,20 +29,20 @@ new city('Paris', 20,38,2.3,'178 La Rue ', '999-1111');
 new city('Lima', 2,16,4.6,'1600 Pennsylvania Ave', '796-5287');
 
 
-
-function form_action( event){
-  event.preventDefault();
-   //gotta have it. prevents page reload
-  const name = event.target.location.value;
-  let address = event.target.Address.value;
-
-
-
-
-
-  // tester(name , address);
+// added new one below 
+// function form_action( event){
+//   event.preventDefault();
+//    //gotta have it. prevents page reload
+//   const name = event.target.location.value;
+//   let address = event.target.Address.value;
+//   // tester(name , address);
  
-}
+// }
+
+
+
+
+
 
 function tester(a , b  ){
   console.log(a);
@@ -326,6 +329,38 @@ function finish_objects(){
 
 
    }
+
+
+//added to fix //////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////// 
+
+
+
+function form_action( event){
+  event.preventDefault();
+   //gotta have it. prevents page reload
+  let name = event.target.location.value;
+  let address = event.target.Address.value;
+
+  let phone_number = event.target.phone_number.value;
+
+  let max = parseInt( event.target.max_number.value);
+  let min = parseInt(event.target.min_number.value);
+  let average = parseFloat(event.target.average.value);
+
+  // console.log(average);
+  new city( name , min, max, average, address, phone_number);
+  // new city('test', 23,65,6.3,'101 Elm Street', '857-5309');
+
+  // renderAll(array_of_cities);
+  makeContactTable2();
+
+}
+
+
+
+
 
 finish_objects();
 
