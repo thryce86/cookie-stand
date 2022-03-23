@@ -1,5 +1,7 @@
 body{
   background-color: green;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: whitesmoke;
 }
 
 
@@ -28,12 +30,12 @@ nav{
 }
 
 
-table{
+/* table{
   border: 2px solid;
   padding: 10px;
   font-size: 30pt;
 
-}
+} */
 
 
 
@@ -171,4 +173,32 @@ footer{
   height: 90px;
   /* background-color: #D0DAEE; */
 }
- */
+
+
+table{
+  font-family:Verdana;
+
+  background-color: red;
+  color: yellow;
+  border: 2px solid;
+  padding: 10px;
+  font-size: 30pt;
+
+}
+
+
+main p{
+  text-align: center;
+}
+
+mark{
+  font-size: 50pt  ;
+  color: blue;
+  background-color: firebrick ;
+
+  font-family: 'Inspiration', cursive;
+}
+
+a{
+  color: yellow;
+}
